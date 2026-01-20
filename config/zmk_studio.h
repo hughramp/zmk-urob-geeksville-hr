@@ -8,10 +8,12 @@
 
         extra1 {
             status = "reserved";
+            label = "Extra1";  // Needed to keep cpp macros happy
         };
 
         extra2 {
             status = "reserved";
+            label = "Extra2";  // Needed to keep cpp macros happy
         };
     };
 };
