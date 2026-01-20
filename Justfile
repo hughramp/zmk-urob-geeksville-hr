@@ -107,6 +107,9 @@ flash-toucan-left:
 flash-toucan-right:
     just _flash toucan_right+rgbled_adapter-seeeduino_xiao_ble
 
+flash-toucan-reset:
+    just _flash settings_reset-seeeduino_xiao_ble
+
 # clear build cache and artifacts
 clean:
     rm -rf {{ build }} {{ out }}

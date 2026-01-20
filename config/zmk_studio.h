@@ -1,21 +1,22 @@
 // Geeksville added zmk-studio support
+// Only add extra reserved layers when ZMK Studio is actually enabled
 #ifndef ZMK_STUDIO_H
 #define ZMK_STUDIO_H
 
+#ifdef CONFIG_ZMK_STUDIO
 / {
     keymap {
         compatible = "zmk,keymap";
 
         extra1 {
             status = "reserved";
-            label = "Extra1";  // Needed to keep cpp macros happy
         };
 
         extra2 {
             status = "reserved";
-            label = "Extra2";  // Needed to keep cpp macros happy
         };
     };
 };
+#endif
 
 #endif
