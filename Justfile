@@ -48,10 +48,19 @@ build-eyelash *args:
     just build nice_nano_v2,eyeslash_corne_peripheral_left {{ args }}
     just build nice_nano_v2,eyeslash_corne_peripheral_right {{ args }}
 
-# Shorthand to build my left toucan
-build-toucan *args:
-    just build seeeduino_xiao_ble,toucan_left {{ args }}
-    just build seeeduino_xiao_ble,toucan_right {{ args }}
+# Shorthand to build my toucan
+build-toucan side="both" *args:
+    @just _build-toucan-{{ side }} {{ args }}
+
+_build-toucan-side side *args:
+    just build seeeduino_xiao_ble,toucan_{{ side }} {{ args }}
+
+_build-toucan-left *args: (_build-toucan-side "left" args)
+_build-toucan-right *args: (_build-toucan-side "right" args)
+
+_build-toucan-both *args:
+    just _build-toucan-side left {{ args }}
+    just _build-toucan-side right {{ args }}
 
 # Flash firmware to keyboard (internal helper)
 _flash artifact:
