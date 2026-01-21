@@ -40,8 +40,10 @@ include:
     
   - board: seeeduino_xiao_ble
     shield: toucan_left rgbled_adapter nice_view_gem
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n -DCONFIG_ZMK_SLEEP=y -DCONFIG_ZMK_PM_SOFT_OFF=y
+    # Turn off studio-rpc-usb-uart for now
+    # snippet: zmk-usb-logging
+    # geeksville: turn off studio for now -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
+    # cmake-args:  -DCONFIG_ZMK_LOG_LEVEL=4
   - board: seeeduino_xiao_ble
     shield: toucan_right rgbled_adapter
     cmake-args: -DCONFIG_ZMK_SLEEP=y -DCONFIG_ZMK_STUDIO_LOCKING=n -DCONFIG_ZMK_PM_SOFT_OFF=y
