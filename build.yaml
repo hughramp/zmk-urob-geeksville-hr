@@ -46,6 +46,7 @@ include:
     # cmake-args:  -DCONFIG_ZMK_LOG_LEVEL=4
   - board: seeeduino_xiao_ble
     shield: toucan_right rgbled_adapter
-    cmake-args: -DCONFIG_ZMK_SLEEP=y -DCONFIG_ZMK_STUDIO_LOCKING=n -DCONFIG_ZMK_PM_SOFT_OFF=y
+    #snippet: zmk-usb-logging
+    #cmake-args: -DCONFIG_INPUT_LOG_LEVEL_DBG=y 
   - board: seeeduino_xiao_ble
     shield: settings_reset
