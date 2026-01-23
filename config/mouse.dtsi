@@ -31,7 +31,7 @@
 };
 
 / {
-  zip_scroll_scaler: zip_scroll_scaler {
+  zip_kbd_scroll_scaler: zip_kbd_scroll_scaler {
     compatible = "zmk,input-processor-scaler";
     #input-processor-cells = <2>;
     type = <INPUT_EV_REL>;
@@ -43,11 +43,11 @@
 &msc_input_listener {
   warp {
     layers = <NAV>;
-    input-processors = <&zip_scroll_scaler 2 1>;
+    input-processors = <&zip_kbd_scroll_scaler 2 1>;
   };
   precision {
     layers = <FN>;
-    input-processors = <&zip_scroll_scaler 1 2>;
+    input-processors = <&zip_kbd_scroll_scaler 1 2>;
   };
 };
 

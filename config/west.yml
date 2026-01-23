@@ -65,7 +65,7 @@ manifest:
     # Toucan keyboard support
     - name: zmk-keyboard-toucan
       remote: geeksville
-      revision: pr-toucan-touchpadpower
+      revision: pr-touch-mode
       import: config/west.yml 
       path: modules/zmk-keyboard-toucan 
       

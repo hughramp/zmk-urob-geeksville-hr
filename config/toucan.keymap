@@ -15,3 +15,36 @@
 #include "base.keymap"
 #include "game_layer.h"
 #include "zmk_studio.h"
+
+
+/ {
+    glidepoint_listener: glidepoint_listener {
+        compatible = "zmk,input-listener";
+
+        scroller {
+            layers = <NAV FN>;
+            input-processors = <
+                &zip_xy_to_scroll_mapper
+                &zip_scroll_scaler 1 5
+                &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
+            >;
+        };
+        base {
+            layers = <DEF>;
+            input-processors = <
+                &touch_processor    
+            >;        
+        };        
+    };
+
+    // FIXME turn on smooth scrolling
+    input_processors {
+        touch_processor: touch_processor {
+            compatible = "zmk,input-processor-behaviors";
+            #input-processor-cells = <0>;
+ 
+            codes = <INPUT_BTN_TOUCH>;      // watch for the 'touch' pseudo button
+            bindings  = <&mo MOUSE>;            // Activate Layer 4 while held &mo 4
+        };
+    };
+};
