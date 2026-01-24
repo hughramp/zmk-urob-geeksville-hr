@@ -1,7 +1,8 @@
 #define CONFIG_WIRELESS
 
 // 6th layer
-#define GAME 6 
+#define GAME 6
+#define SCROLL 7
 
 #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)     \
     ZMK_42_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH, \
@@ -22,7 +23,7 @@
         compatible = "zmk,input-listener";
 
         scroller {
-            layers = <NAV FN>;
+            layers = <NAV FN SCROLL>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_scaler 1 5

@@ -1,5 +1,13 @@
 // Geeksville add game layer
 
+#ifdef SCROLL
+// A nop layer just so wheht SCROLL_CMD is held down we can change the touchpad to instead generate
+// scroll events.
+#define SCROLL_CMD &mo SCROLL
+#else
+#define SCROLL_CMD ___
+#endif
+
 // Game layer: Replaces left 3x6 + three thumb keys with gaming layout.
 // Number keys 1-5 shift to 6-0 when shift is held.
 SIMPLE_MORPH(game_1_6, SFT, &kp N1, &kp N6)
@@ -20,5 +28,17 @@ ZMK_42_LAYER(Game,
            &kp SPACE &kp LSHFT,                        &mkp LCLK &mkp RCLK,
 //              ╰──────┴──────┴                       ╰──────┴──────┴
 // Outer keys:  OLT        OLM        OLB       ORT      ORM  ORB         OLH       ORH
-              &kp ESC, &kp TAB,   &kp LCTRL,  &to DEF,   ___,  ___,      &kp LALT,  &smart_mouse
+              &kp ESC, &kp TAB,   &kp LCTRL,  &to DEF,   ___,  ___,      &kp LALT,  SCROLL_CMD
 )
+
+#ifdef SCROLL
+// A nop layer just so wheht SCROLL_CMD is held down we can change the touchpad to instead generate
+// scroll events.
+
+ZMK_42_LAYER(Scrl,
+    ___ ___ ___ ___ ___,    ___    ___    ___    ___    ___,
+    ___ ___ ___ ___ ___,    ___    ___    ___    ___    ___,
+    ___ ___ ___ ___ ___,    ___    ___    ___    ___    ___,
+           ___ ___,            ___    ___,
+           ___, ___, ___, ___, ___, ___, ___, ___)
+#endif
