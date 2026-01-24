@@ -140,12 +140,15 @@ draw-legacy:
     keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/base.yaml" -k "ferris/sweep" >"{{ draw }}/base.svg"
 
 # my customized layout
-draw:
+draw variant:
     #!/usr/bin/env bash
     set -euo pipefail
-    keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/eyeslash_corne.keymap" --virtual-layers Combos >"{{ draw }}/base.yaml"
+    keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/{{ variant }}.keymap" --virtual-layers Combos >"{{ draw }}/base.yaml"
     yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/base.yaml"
-    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/base.yaml" -j "{{ config }}/eyeslash_corne.json" >"{{ draw }}/base.svg"
+    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/base.yaml" -j "{{ config }}/{{ variant }}.json" >"{{ draw }}/base.svg"
+
+draw-eyelash: (draw "eyeslash_corne")
+draw-toucan: (draw "toucan")
 
 # initialize west
 init:
