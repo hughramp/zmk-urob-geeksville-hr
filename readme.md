@@ -9,6 +9,22 @@ modules](https://github.com/search?q=topic%3Azmk-module+fork%3Atrue+owner%3Aurob
 All build dependencies are pinned in this [`west`
 manifest](https://github.com/urob/zmk-config/blob/main/config/west.yml).
 
+## Geeksville tweaks
+
+This project is 99.9% urob's work.  But notes on my personal changes (I'm happy to send in any of
+these as PRs if useful but I kinda assume only useful for me):
+
+* Builds for my corne '[eyeslash](https://github.com/geeksville/zmk-corne-dongle)' from aliexpress (on my case the Taiwan equivalent 'shopee')
+* Builds for my [Beekeeb Toucan](https://beekeeb.com/toucan-keyboard/) (OMG I love this keyboard)
+* Fixes for the touchpad driver to enable shutdown support (much better battery life) and touch notification.
+* Urob's NAV mode is modified so that the touchpad works as a scrollpad.
+* In any other mode: If you are touching the touchpad the right thumb buttons provide left/right click or scroll mode behavior.
+* A [gaming mode](draw/base.svg) (toggled by pressing the upper right key on the keypad).  Which is intended for one
+handed left-half use.  Essentially a WASD qwerty layout with number row that provide 1-5 and 6-0.  In this
+mode it is assumed that the right side is used only for touchpad/mouse buttons.
+
+![photo](geeksville/photo.jpg)
+
 ## Highlights
 
 - ["Timeless" homerow mods](#timeless-homerow-mods)
