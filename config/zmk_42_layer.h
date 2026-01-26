@@ -20,3 +20,7 @@
         ___, &smart_mouse                       \
     )
 #endif
+
+#ifndef ZMK_MOUSE_LAYER
+#define ZMK_MOUSE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH) ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)
+#endif

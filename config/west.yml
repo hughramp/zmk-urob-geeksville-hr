@@ -68,7 +68,17 @@ manifest:
       revision: pr-touch-mode
       import: config/west.yml 
       path: modules/zmk-keyboard-toucan 
-      
+
+    # add layer info to BLE packets for app companion  
+    #- manifest:
+    #    remotes:
+    #      - name: maatthc
+    #        url-base: https://github.com/maatthc
+    #    projects:
+    #      - name: zmk-feature-appcompanion
+    #        remote: maatthc
+    #        revision: main
+
     # Only source necessary Zephyr modules. Remove this entire section to restore
     # the default (needed for less common hardware).
     - name: zephyr

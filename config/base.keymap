@@ -260,7 +260,7 @@ ZMK_BASE_LAYER(Sys,
 )
 
 // Note: U_WH_L and U_WH_R have been replaced with U_WH_U and U_WH_D so that mouse buttons can be on the thumb and assume touchpad probably in use.
-ZMK_BASE_LAYER(Mous,
+ZMK_MOUSE_LAYER(Mous,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     ___           ___           ___           ___           ___         ,   ___           &kp PG_UP     U_MS_U         &kp PG_DN    ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤

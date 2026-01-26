@@ -8,7 +8,7 @@
     ZMK_42_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH, \
         ___, ___, ___,                          \
         &to GAME, ___, ___,                     \
-        &to DEF, &mo SCROLL                     \
+        &to DEF, &lt SCROLL MCLK                            \
     )
 
 #include "zmk_42_layer.h"
@@ -17,13 +17,16 @@
 #include "game_layer.h"
 #include "zmk_studio.h"
 
-
 / {
     glidepoint_listener: glidepoint_listener {
         compatible = "zmk,input-listener";
 
+        input-processors = <
+            &zip_xy_scaler 1 16 // lowering to 0.0625x
+            >;
+        
         scroller {
-            layers = <NAV FN SCROLL>;
+            layers = <NAV FN SCROLL SCROLL>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_scaler 1 5
