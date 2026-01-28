@@ -19,16 +19,16 @@ SIMPLE_MORPH(game_5_0, SFT, &kp N5, &kp N0)
 
 ZMK_42_LAYER(Game,
 //╭──────┬──────┬──────┬──────┬──────╮         ╭──────┬──────┬──────┬──────┬──────╮
-  &game_1_6 &game_2_7 &game_3_8 &game_4_9 &game_5_0,    ___    ___    ___    ___    ___,
+  &game_1_6 &game_2_7 &game_3_8 &game_4_9 &game_5_0, &kp T  &kp Y  &kp U   &kp I  &kp O,
 //├──────┼──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┼──────┤
-    &kp Z  &kp Q  &kp W  &kp E  &kp R,           &mkp LCLK &mkp RCLK  ___    ___    ___,
+    &kp Z  &kp Q  &kp W  &kp E  &kp R,           &kp F &kp G  &kp H   &kp J  &kp K,
 //├──────┼──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┼──────┤
-    &kp X  &kp A  &kp S  &kp D  &kp C,           &mkp LCLK &mkp RCLK  ___    ___    ___,
+    &kp X  &kp A  &kp S  &kp D  &kp C,           &kp V &kp B  &kp N   &kp M  &kp P,
 //╰──────┴──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┴──────╯
            &kp SPACE &kp LSHFT,                        &mkp LCLK &mkp RCLK,
 //              ╰──────┴──────┴                       ╰──────┴──────┴
-// Outer keys:  OLT        OLM        OLB       ORT      ORM  ORB         OLH       ORH
-              &kp ESC, &kp TAB,   &kp LCTRL,  &to DEF,   ___,  ___,      &kp LALT,  SCROLL_CMD
+// Outer keys:  OLT        OLM        OLB       ORT      ORM     ORB         OLH       ORH
+              &kp ESC, &kp TAB,   &kp LCTRL,  &to DEF,   &kp L,  ___,      &kp LALT,  SCROLL_CMD
 )
 
 #ifdef SCROLL

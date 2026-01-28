@@ -4,6 +4,9 @@
 #define GAME 6
 #define SCROLL 7
 
+// Define to indicate we have a physical mouse/touchpad
+#define HAS_MOUSE
+
 #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)     \
     ZMK_42_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH, \
         ___, ___, ___,                          \
