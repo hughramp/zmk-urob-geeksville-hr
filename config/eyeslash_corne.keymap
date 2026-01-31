@@ -14,7 +14,7 @@
 #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)     \
     ZMK_42_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH, \
         ___, ___, ___,                          \
-        &to GAME, ___, ___,                     \
+        ___, ___, &to GAME,                     \
         &kp LGUI, &smart_mouse                       \
     )
 

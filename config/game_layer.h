@@ -23,12 +23,12 @@ ZMK_42_LAYER(Game,
 //├──────┼──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┼──────┤
     &kp Z  &kp Q  &kp W  &kp E  &kp R,           &kp F &kp G  &kp H   &kp J  &kp K,
 //├──────┼──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┼──────┤
-    &kp X  &kp A  &kp S  &kp D  &kp C,           &kp V &kp B  &kp N   &kp M  &kp P,
+    &kp X  &kp A  &kp S  &kp D  &kp C,           &kp V &kp B  &kp N   &kp M  ___,
 //╰──────┴──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┴──────╯
            &kp SPACE &kp LSHFT,                        &mkp LCLK &mkp RCLK,
 //              ╰──────┴──────┴                       ╰──────┴──────┴
 // Outer keys:  OLT        OLM        OLB       ORT      ORM     ORB         OLH       ORH
-              &kp ESC, &kp TAB,   &kp LCTRL,  &to DEF,   &kp L,  ___,      &kp LALT,  SCROLL_CMD
+              &kp ESC, &kp TAB,   &kp LCTRL,   &kp P,   &kp L,  &to DEF,  &kp LALT,  SCROLL_CMD
 )
 
 #ifdef SCROLL
