@@ -25,7 +25,7 @@ ZMK_42_LAYER(Game,
 //├──────┼──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┼──────┤
     &kp X  &kp A  &kp S  &kp D  &kp C,           &kp V &kp B  &kp N   &kp M  ___,
 //╰──────┴──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┴──────╯
-           &kp SPACE &kp LSHFT,                        &mkp LCLK &mkp RCLK,
+           &kp SPACE   &lt FN LSHFT,                &mkp LCLK &mkp RCLK,
 //              ╰──────┴──────┴                       ╰──────┴──────┴
 // Outer keys:  OLT        OLM        OLB       ORT      ORM     ORB         OLH       ORH
               &kp ESC, &kp TAB,   &kp LCTRL,   &kp P,   &kp L,  &to DEF,  &kp LALT,  SCROLL_CMD
