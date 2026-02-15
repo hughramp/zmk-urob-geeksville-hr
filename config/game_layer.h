@@ -29,14 +29,22 @@ SIMPLE_MORPH(k_d_b, SFT, &kp D, &kp B)
 SIMPLE_MORPH(k_s_n, SFT, &kp S, &kp N)
 SIMPLE_MORPH(k_a_m, SFT, &kp A, &kp M)
 
+// morph arrow keys to right hand equiv of WASD
+SIMPLE_MORPH(k_up, SFT, &kp U, &kp UP)
+SIMPLE_MORPH(k_down, SFT, &kp H, &kp DOWN)
+SIMPLE_MORPH(k_left, SFT, &kp G, &kp LEFT)
+SIMPLE_MORPH(k_right, SFT, &kp J, &kp RIGHT)
+SIMPLE_MORPH(k_comma, SFT, &kp Y, &kp COMMA)
+SIMPLE_MORPH(k_dot, SFT, &kp I, &kp DOT)
+
 ZMK_42_LAYER(Game,
-//╭──────┬──────┬──────┬──────┬──────╮         ╭──────┬──────┬──────┬──────┬──────╮
-  &game_1_6 &game_2_7 &game_3_8 &game_4_9 &game_5_0, &kp T  &kp Y  &kp U   &kp I  &kp O,
-//├──────┼──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┼──────┤
-   &k_z_k &k_q_j  &k_w_h &k_e_g &k_r_f,          &kp F &kp G  &kp H   &kp J  &kp K,
-//├──────┼──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┼──────┤
-    &kp X &k_a_m  &k_s_n &k_d_b &k_c_v,         &kp V &kp B  &kp N   &kp M  &kp BSPC,
-//╰──────┴──────┼──────┼──────┼──────┤         ├──────┼──────┼──────┼──────┴──────╯
+//╭──────┬──────┬──────┬──────┬──────╮              ╭──────┬──────┬──────┬──────┬──────╮
+  &game_1_6 &game_2_7 &game_3_8 &game_4_9 &game_5_0, &kp T &k_comma  &k_up &k_dot  &kp O,
+//├──────┼──────┼──────┼──────┼──────┤              ├──────┼──────┼──────┼──────┼──────┤
+   &k_z_k &k_q_j  &k_w_h &k_e_g &k_r_f,              &kp F &k_left &k_down &k_right &kp K,
+//├──────┼──────┼──────┼──────┼──────┤              ├──────┼──────┼──────┼──────┼──────┤
+    &kp X &k_a_m  &k_s_n &k_d_b &k_c_v,              &kp V &kp B  &kp N   &kp M  &kp BSPC,
+//╰──────┴──────┼──────┼──────┼──────┤              ├──────┼──────┼──────┼──────┴──────╯
            &kp SPACE &kp LSHFT,                        &mkp LCLK &mkp RCLK,
 //              ╰──────┴──────┴                       ╰──────┴──────┴
 // Outer keys:  OLT        OLM        OLB       ORT      ORM     ORB         OLH       ORH
