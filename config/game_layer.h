@@ -18,6 +18,8 @@ SIMPLE_MORPH(game_5_0, SFT, &kp N5, &kp N0)
 // SIMPLEx_MORPH(game_esc_tab, SFT, &kp ESC, &kp TAB)
 
 // Morphs to mirror right half alpha to left side shifted
+// geeksville turn off mirroring for now
+#if 0
 SIMPLE_MORPH(k_r_f, SFT, &kp R, &kp F)
 SIMPLE_MORPH(k_e_g, SFT, &kp E, &kp G)
 SIMPLE_MORPH(k_w_h, SFT, &kp W, &kp H)
@@ -28,6 +30,17 @@ SIMPLE_MORPH(k_c_v, SFT, &kp C, &kp V)
 SIMPLE_MORPH(k_d_b, SFT, &kp D, &kp B)
 SIMPLE_MORPH(k_s_n, SFT, &kp S, &kp N)
 SIMPLE_MORPH(k_a_m, SFT, &kp A, &kp M)
+#else
+#define k_r_f kp R
+#define k_e_g kp E
+#define k_w_h kp W
+#define k_q_j kp Q
+#define k_z_k kp Z
+#define k_c_v kp C
+#define k_d_b kp D
+#define k_s_n kp S
+#define k_a_m kp A
+#endif
 
 // morph arrow keys to right hand equiv of WASD
 SIMPLE_MORPH(k_up, SFT, &kp U, &kp UP)
