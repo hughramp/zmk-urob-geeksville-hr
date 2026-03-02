@@ -8,7 +8,7 @@
 #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)     \
     ZMK_42_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH, \
         &kp ESC,    &kp TAB , &grave_tilde,    \
-        &plus_equal, &kp BSPC, &qexcl,        \
+        &plus_equal, &kp BSPC, &colon_fslh,        \
         &dash_under, SMART_SYMB                 \
     )
 
