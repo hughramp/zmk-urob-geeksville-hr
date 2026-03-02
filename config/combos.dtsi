@@ -7,9 +7,8 @@
   ╰───────╮ LH2 LH1 LH0 │ │ RH0 RH1 RH2 ╭───────╯
           ╰─────────────╯ ╰─────────────╯ */
 
-// geeksville hack until my typing speed is faster, allow 4x more time for combos
-#define COMBO_TERM_FAST (18 * 4)
-#define COMBO_TERM_SLOW (30 * 4)
+#define COMBO_TERM_FAST (18)
+#define COMBO_TERM_SLOW (30)
 
 #define COMBO_IDLE_FAST 150
 #define COMBO_IDLE_SLOW 50
