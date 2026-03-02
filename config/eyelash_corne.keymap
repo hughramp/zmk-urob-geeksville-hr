@@ -21,5 +21,4 @@
 #include "zmk_42_layer.h"
 #include "eyelash42-no-enc.h"
 #include "base.keymap"
-#include "game_layer.h"
 #include "zmk_studio.h"
