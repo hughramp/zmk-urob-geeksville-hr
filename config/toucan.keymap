@@ -1,17 +1,15 @@
 #define CONFIG_WIRELESS
 
-// 6th layer
-#define GAME 6
-#define SCROLL 7
 
 // Define to indicate we have a physical mouse/touchpad
 #define HAS_MOUSE
+#define SCROLL 7
 
 #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)     \
     ZMK_42_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH, \
-        ___, ___, ___,                          \
-        ___, ___, &to GAME,                     \
-        &to DEF, &lt SCROLL MCLK                            \
+        &kp ESC,    &kp TAB , &grave_tilde,    \
+        &plus_equal, &kp BSPC, &qexcl,        \
+        &dash_under, SMART_SYMB                 \
     )
 
 #include "zmk_42_layer.h"
@@ -31,7 +29,7 @@
             layers = <NAV FN SCROLL>;
             input-processors = <
                 &zip_xy_to_scroll_mapper
-                &zip_scroll_scaler 1 5
+                &zip_scroll_scaler 1 25
                 &zip_scroll_transform INPUT_TRANSFORM_X_INVERT
             >;
         };

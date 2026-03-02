@@ -18,6 +18,7 @@
 #define NUM 3
 #define SYS 4
 #define MOUSE 5
+#define SYM 6
 
 #define XXX &none
 #define ___ &trans
@@ -138,6 +139,11 @@ ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
 ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
               tapping-term-ms = <200>;)
 
+// Tap: sticky sym-layer | Hold: momentary sym-layer.
+#define SMART_SYMB &smart_symb SYM SYM
+ZMK_HOLD_TAP(smart_symb, bindings = <&mo>, <&sl>; flavor = "balanced";
+             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
+
 // Smart-mouse, requires tri-state module.
 ZMK_TRI_STATE(
     smart_mouse, bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
@@ -166,6 +172,22 @@ SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
 
 // Tap: qmark | Shift + tap: excl.
 SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
+
+// Tap: dash | Shift + tap: underscore.
+SIMPLE_MORPH(dash_under, SFT, &kp MINUS, &kp UNDER)
+
+// Tap: plus | Shift + tap: equal.
+SIMPLE_MORPH(plus_equal, SFT, &kp PLUS, &kp EQUAL)
+
+// Tap: single quote | Shift + tap: double quote.
+SIMPLE_MORPH(sqt_dqt, SFT, &kp SQT, &kp DQT)
+MAKE_HRM(hm_gui, &kp, &sqt_dqt, KEYS_R THUMBS)
+
+// Tap: colon | Shift + tap: forward slash.
+SIMPLE_MORPH(colon_fslh, SFT, &kp COLON, &kp FSLH)
+
+// Tap: grave | Shift + tap: tilde.
+SIMPLE_MORPH(grave_tilde, SFT, &kp GRAVE, &kp TILDE)
 
 // Tap: left/right parenthesis | Shft + tap: less-than/greater-than.
 SIMPLE_MORPH(lpar_lt, SFT, &kp LPAR, &kp LT)
@@ -209,11 +231,11 @@ ZMK_CONDITIONAL_LAYER(sys, FN NUM, SYS) // FN + NUM --> SYS.
 
 ZMK_BASE_LAYER(Base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp Q         &kp W         &kp F         &kp P         &kp B       ,   &kp J         &kp L         &kp U         &kp Y         &kp SQT     ,
+    &kp B         &kp L         &kp D         &kp C         &kp V       ,   &kp Z         &kp Y         &kp O         &kp U         &kp Q       ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &hml LGUI A   &hml LALT R   &hml LSHFT S  &hml LCTRL T  &kp G       ,   &kp M         &hmr LCTRL N  &hmr RSHFT E  &hmr LALT I   &hmr LGUI O ,
+    &hml LSHFT N  &hml LCTRL R  &hml LALT T   &hml LC(LALT) S &kp G     ,   &kp P         &hmr LC(LALT) H &hmr LALT A  &hmr LCTRL E  &hmr RSHFT I,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp Z         &kp X         &kp C         &kp D         &kp V       ,   &kp K         &kp H         &comma_morph  &dot_morph    &qexcl      ,
+    &hm_gui LGUI 0 &kp X        &kp M         &kp W         &kp J       ,   &kp K         &kp F         &comma_morph  &dot_morph    &colon_fslh ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               &lt_spc NAV 0 &lt FN RET  ,   SMART_NUM     MAGIC_SHIFT
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
@@ -223,7 +245,7 @@ ZMK_BASE_LAYER(Nav,
 //╭─────────────┬─────────────┬─   (pwin)───┬──(nwin)  ───┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp LA(F4)    ___           ___           ___           ___         ,   &kp PG_UP     NAV_BSPC      NAV_UP        NAV_DEL       ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &sk LGUI      &sk LALT      &sk LSHFT     &sk LCTRL     ___         ,   &kp PG_DN     NAV_LEFT      NAV_DOWN      NAV_RIGHT     &kp RET     ,
+    &sk LSHFT     &sk LCTRL     &sk LALT      &sk LC(LALT)  ___         ,   &kp PG_DN     NAV_LEFT      NAV_DOWN      NAV_RIGHT     &kp RET     ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           ___           ___           ___           ___         ,   &kp INS       &kp TAB       ___           ___           ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
@@ -235,7 +257,7 @@ ZMK_BASE_LAYER(Fn,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp F12       &kp F7        &kp F8        &kp F9        ___         ,   ___           &kp C_PREV    &kp C_VOL_UP  &kp C_NEXT    ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼────pwin  ───┼─────────────┼──(nwin) ────┼─────────────┤
-    &hml LGUI F11 &hml LALT F4  &hml LSHFT F5 &hml LCTRL F6 ___         ,   DSK_PREV      &kp LS(TAB)    VOL_DOWN      &swapper     DSK_NEXT    ,
+    &hml LSHFT F11 &hml LCTRL F4 &hml LALT F5  &hml LC(LALT) F6 ___     ,   DSK_PREV      &kp LS(TAB)    VOL_DOWN      &swapper     DSK_NEXT    ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp F10       &kp F1        &kp F2        &kp F3        ___         ,   PIN_APP       PIN_WIN       DSK_MGR       ___           ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
@@ -247,7 +269,7 @@ ZMK_BASE_LAYER(Num,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     ___           &kp N7        &kp N8        &kp N9        ___         ,   ___           ___           ___           ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &hml LGUI N0  &hml LALT N4  &hml LSHFT N5 &hml LCTRL N6 ___         ,   ___           ___           ___           ___           ___         ,
+    &hml LSHFT N0 &hml LCTRL N4 &hml LALT N5  &hml LC(LALT) N6 &kp DOT  ,   ___           ___           ___           ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           &kp N1        &kp N2        &kp N3        ___         ,   ___           ___           ___           ___           ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
@@ -270,14 +292,34 @@ ZMK_BASE_LAYER(Sys,
 // Note: U_WH_L and U_WH_R have been replaced with U_WH_U and U_WH_D so that mouse buttons can be on the thumb and assume touchpad probably in use.
 ZMK_MOUSE_LAYER(Mous,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           ___           ___           ___           ___         ,   ___           &kp PG_UP     U_MS_U         &kp PG_DN    ___         ,
+    ___           ___           ___           ___           ___         ,   &mo SCROLL    &kp PG_UP     U_MS_U         &kp PG_DN    ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           ___           ___           ___           ___         ,   U_WH_U        U_MS_L        U_MS_D         U_MS_R       U_WH_D      ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           ___           ___           ___         ,   &mkp LCLK     &mkp RCLK      &mkp LCLK     &mkp MCLK     ___         ,
+    ___           ___           ___           ___           &mo SCROLL  ,   &mkp LCLK    &mkp RCLK      &mkp LCLK     &mkp MCLK     ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               &mkp LCLK     &mkp RCLK   ,   &mkp LCLK     &mkp RCLK
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
+
+ZMK_BASE_LAYER(Sym,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &kp GRAVE     &kp TILDE     &kp LBKT      &kp RBKT      &kp PIPE    ,   &kp BSLH      &kp LBRC      &kp RBRC      &kp LT        &kp GT      ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &kp QMARK     &kp EXCL      &kp LPAR      &kp RPAR      &kp EQUAL   ,   &kp PLUS      &kp STAR      &kp AMPS      &kp CARET     &kp PRCNT   ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &kp DLLR      &kp HASH      &kp MINUS     &kp UNDER     &kp AT      ,   &kp FSLH      &kp SEMI      &kp COLON      &kp SQT      &kp DQT     ,
+//╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
+                                              ___           ___         ,   ___           ___
+//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
+
+// Scroll layer - no keys defined, exists only to activate trackpad scroll mode via input listener.
+ZMK_BASE_LAYER(Scroll,
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+                                              ___           ___         ,   ___           ___
 )
 
 /* vim: set ft=c tw=146: */
