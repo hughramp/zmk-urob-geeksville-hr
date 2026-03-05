@@ -163,12 +163,10 @@ ZMK_TRI_STATE(swapper, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
                 bindings = <BINDING1>, <BINDING2>;)
 
 // Tap: comma | Shift + tap: semicolon | Ctrl + shift + tap: <.
-SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &comma_inner_morph)
-SIMPLE_MORPH(comma_inner_morph, CTL, &kp SEMICOLON, &kp LESS_THAN)
+SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp SEMICOLON)
 
 // Tap: dot | Shift + tap: colon | Ctrl + shift + tap: >.
-SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &dot_inner_morph)
-SIMPLE_MORPH(dot_inner_morph, CTL, &kp COLON, &kp GREATER_THAN)
+SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &kp COLON)
 
 // Tap: qmark | Shift + tap: excl.
 SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
@@ -231,11 +229,11 @@ ZMK_CONDITIONAL_LAYER(sys, FN NUM, SYS) // FN + NUM --> SYS.
 
 ZMK_BASE_LAYER(Base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp B         &kp L         &kp D         &kp C         &kp V       ,   &kp Z         &kp Y         &kp O         &kp U         &kp Q       ,
+    &kp B         &kp L         &kp D         &kp C         &kp V       ,   &kp J         &kp Y         &kp O         &kp U         &kp Q       ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &hml LSHFT N  &hml LCTRL R  &hml LALT T   &hml LC(LALT) S &kp G     ,   &kp P         &hmr LC(LALT) H &hmr LALT A  &hmr LCTRL E  &hmr RSHFT I,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &hm_gui LGUI 0 &kp X        &kp M         &kp W         &kp J       ,   &kp K         &kp F         &comma_morph  &dot_morph     &qexcl     ,
+    &hm_gui LGUI 0 &kp X        &kp M         &kp W         &kp Z       ,   &kp K         &kp F         &comma_morph  &dot_morph     &qexcl     ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               &lt_spc NAV 0 &lt FN RET  ,   SMART_NUM     MAGIC_SHIFT
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
@@ -243,11 +241,11 @@ ZMK_BASE_LAYER(Base,
 
 ZMK_BASE_LAYER(Nav,
 //╭─────────────┬─────────────┬─   (pwin)───┬──(nwin)  ───┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp LA(F4)    ___           ___           ___           ___         ,   &kp PG_UP     NAV_BSPC      NAV_UP        NAV_DEL       ___         ,
+    &kp LA(F4)    ___           ___           ___           ___         ,   &kp PG_UP     &kp LC(LA(LPAR)) &kp UP     &kp LC(LA(RPAR)) ___       ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &sk LSHFT     &sk LCTRL     &sk LALT      &sk LC(LALT)  ___         ,   &kp PG_DN     NAV_LEFT      NAV_DOWN      NAV_RIGHT     &kp RET     ,
+    &sk LSHFT     &sk LCTRL     &sk LALT      &sk LC(LALT)  ___         ,   &kp PG_DN     &kp LEFT      &kp DOWN      &kp RIGHT     &kp RET     ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           ___           ___           ___         ,   &kp INS       &kp TAB       ___           ___           ___         ,
+    ___           ___           ___           ___           ___         ,   &kp INS       &kp LC(LA(LBRC)) ___       &kp LC(LA(RBRC)) ___       ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               ___           ___         ,   ___           CANCEL
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
