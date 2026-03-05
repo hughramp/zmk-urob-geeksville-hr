@@ -171,8 +171,10 @@ SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &kp COLON)
 // Tap: qmark | Shift + tap: excl.
 SIMPLE_MORPH(qexcl, SFT, &kp QMARK, &kp EXCL)
 
-// Tap: dash | Shift + tap: underscore.
+// Tap: dash | Shift + tap: underscore. | Hold: num layer.
 SIMPLE_MORPH(dash_under, SFT, &kp MINUS, &kp UNDER)
+ZMK_HOLD_TAP(lt_dash, bindings = <&mo>, <&dash_under>; flavor = "balanced";
+             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
 
 // Tap: plus | Shift + tap: equal.
 SIMPLE_MORPH(plus_equal, SFT, &kp PLUS, &kp EQUAL)
@@ -302,11 +304,11 @@ ZMK_MOUSE_LAYER(Mous,
 
 ZMK_BASE_LAYER(Sym,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp GRAVE     &kp TILDE     &kp LBKT      &kp RBKT      &kp PIPE    ,   &kp BSLH      &kp LBRC      &kp RBRC      &kp LT        &kp GT      ,
+    ___           ___           ___           ___           ___         ,   &kp DLLR      ___           ___           ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp QMARK     &kp EXCL      &kp LPAR      &kp RPAR      &kp EQUAL   ,   &kp PLUS      &kp STAR      &kp AMPS      &kp CARET     &kp PRCNT   ,
+    ___           ___           ___           ___           ___         ,   &kp AT        &kp STAR      &kp AMPS      &kp PRCNT     &kp CARET   ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp DLLR      &kp HASH      &kp MINUS     &kp UNDER     &kp AT      ,   &kp FSLH      &kp SEMI      &kp COLON      &kp SQT      &kp DQT     ,
+    ___           ___           ___           ___           ___         ,   &kp FSLH      &kp PIPE      &kp BSLH      &kp HASH      &kp DQT     ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               ___           ___         ,   ___           ___
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯

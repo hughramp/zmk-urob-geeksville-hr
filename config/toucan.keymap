@@ -9,7 +9,7 @@
     ZMK_42_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH, \
         &kp ESC,    &kp TAB , &grave_tilde,    \
         &plus_equal, &kp BSPC, &colon_fslh,        \
-        &dash_under, SMART_SYMB                 \
+        &lt_dash NUM 0, SMART_SYMB               \
     )
 
 #include "zmk_42_layer.h"
